@@ -42,11 +42,11 @@ export class LoginComponent implements OnInit {
                             this.router.navigate(['/Gestion'])
                             ;})
                           .catch(error =>{ this.Mensaje= error.message })
-                          var x = document.getElementById("snackbar");
+                        /*  var x = document.getElementById("snackbar");
                           x.className = "show Perdedor";
                        setTimeout(function(){ 
                           x.className = x.className.replace("show", "");
-                       }, 3000);
+                       }, 3000);*/
         }  
   }
 

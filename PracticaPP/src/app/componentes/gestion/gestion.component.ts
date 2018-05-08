@@ -62,7 +62,8 @@ export class GestionComponent implements OnInit {
   }
 
   Guardar(){
-    this.unaPersona.pathFoto= '../../../assets/imagenes/test.jpg';
+    this.unaPersona.pathFoto= '../../assets/test.jpg';
+    console.info(this.unaPersona);
     if(this.nuevo)//console.log(this.pathFoto); 
       this.miServicioPersona.GuardarDatos(this.unaPersona);
     else
