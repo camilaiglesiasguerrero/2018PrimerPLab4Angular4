@@ -7,6 +7,10 @@ export class Persona {
     pathFoto: string ="";
 
     constructor() {
-        
+    }
+    
+    public GuardarLocalStorage(unUser: Persona)
+    {
+        localStorage.setItem('Usuario',JSON.stringify(unUser));
     }
 }

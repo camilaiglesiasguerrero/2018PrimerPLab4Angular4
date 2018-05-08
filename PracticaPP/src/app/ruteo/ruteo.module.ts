@@ -7,9 +7,11 @@ import { CommonModule } from '@angular/common';
 
 //component
 import { NexoComponent } from '../componentes/nexo/nexo.component';
+import { GestionComponent } from '../componentes/gestion/gestion.component';
 
 const MiRuteo = [
-  {path: '' , component: NexoComponent}
+  {path: '' , component: NexoComponent},
+  {path:'Gestion', component: GestionComponent}
 ];
 
 @NgModule({

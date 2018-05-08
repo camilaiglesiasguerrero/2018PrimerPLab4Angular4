@@ -41,14 +41,15 @@ export class PersonaService {
 
   public BorrarDatos(id: string)
   {
-    this.miHttp.Delete(id);
-    
+    this.miHttp.Delete(id);    
   }
 
   public ModificarDatos(unaPersona: Persona)
   {
     this.miHttp.Update(unaPersona);
   }
+
+  
 }
 
 
