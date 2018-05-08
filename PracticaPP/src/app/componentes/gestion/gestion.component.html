@@ -1,0 +1,66 @@
+<app-cabecera></app-cabecera>
+
+<div class="container">
+    <br>
+    <button type="button" class="btn btn-primary" (click)='traerTodo()'>Traer Todas</button>
+    <button style="float: right;" type="button" class="btn btn-default"><input type="checkbox" [ngModel]='nuevoChecked' (ngModelChange)="NuevoCheck()" > Nuevo</button>
+    <br>
+</div>
+<div class="container">
+<table class="table table-hover" style="text-align:center">
+    <thead>
+        <tr>
+            <th>Acción</th>
+            <th>Nombre</th>
+            <th>Mail</th>
+            <th>Sexo</th>
+            <th>Password</th>
+            <th>Foto</th>
+        </tr>
+    </thead>
+    <tr [appBackgroundSexo]="p.sexo" *ngFor='let p of listadoDePersonas' class="miClase">
+        <td><i class="fa fa-pencil" (click)="Modificar(p.id)"></i>
+            <i> </i>
+            <i class="fa fa-trash" (click)="Borrar(p.id)"></i>
+            <i> </i>
+            <i (click)='irAMostrar(p)' class="fa fa-external-link"></i>
+            <i hidden>{{p.id}}</i></td>
+        <td>{{p.nombre}}</td>
+        <td>{{p.mail}}</td>
+        <td>{{p.sexo}}</td>
+        <td>{{p.password}}</td>
+        <td><img [src]='p.pathFoto' width='15%' alt=""></td>
+        
+    </tr>
+</table>
+</div>
+
+<div [hidden]='!mostrarForm' class="container" style="margin-left: 40%" >
+    <form action="">
+        <div class="form-group">
+            <label>Nombre</label><br><input [(ngModel)]='unaPersona.nombre' type="text" name="nombre" required> 
+        </div>
+        <div class="form-group">
+            <label>Mail</label><br><input [(ngModel)]='unaPersona.mail' type="email" name="mail" required> 
+        </div>
+        <div class="form-group">
+            <label>Password</label><br><input [(ngModel)]='unaPersona.password' type="password" name="psw" required>
+        </div>
+        <div class="form-group">
+            <label>Sexo</label>
+            <br><input style="margin-left:5%" [(ngModel)]='unaPersona.sexo' type="radio" name="sexo" value="F" checked> <label> F</label>
+            <br><input style="margin-left:5%" [(ngModel)]='unaPersona.sexo' type="radio" name="sexo" value="M"> <label> M</label>
+        </div>
+        <div class="form-group">
+                <input type="file" ><!--[(ngModel)]='pathFoto'>-->
+        </div>
+        <br><button type="button" class="btn btn-success" (click)="Guardar()">Guardar</button>
+    </form>
+</div>
+
+
+<app-mostrar-persona [hidden]="!irA" [laPersona]='laPersona'></app-mostrar-persona>
+
+
+<div id="snackbar">{{mensaje}}</div>
+
